@@ -1,0 +1,288 @@
+@import "__variable";
+@import "__picked";
+
+*,
+*::before,
+*::after { 
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+} 
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+
+    @media only screen and (max-width:700px) {
+        font-size: 55%;  
+    }
+
+    @media only screen and (max-width:375px) {
+        font-size: 50%;
+    }
+}
+
+body {
+    font-family: 'Barlow Semi Condensed';  
+    letter-spacing: 1px;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content; 
+    height: 100vh;  
+    justify-content: center;
+    align-items: center; 
+    background-image: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));  
+    padding: 3rem;  
+    position: relative; 
+} 
+
+.scoreBoard {
+    width: 60rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1.5rem 2rem;
+    border: 2px solid hsl(217, 16%, 45%); 
+    border-radius: 1rem;
+    justify-self: center;
+
+    @media only screen and (max-width:700px) {
+        width: 40rem;  
+    }
+
+    @media only screen and (max-width:375px) {
+        width: 32rem; 
+    }
+
+
+    &__img {
+        height: 100%;
+    }
+
+    &__scoreBox {
+        justify-self: end;
+        padding: 1rem 3.5rem;
+        text-align: center;
+        background-color: #fff;
+        border-radius: .5rem;
+        display: flex;
+        flex-direction: column;
+
+        @media only screen and (max-width:375px) {
+            padding: .5rem 1.5rem; 
+        }
+    }
+
+    &__heading {
+        font-size: 1.3rem;
+        color:  hsl(229, 64%, 46%); 
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__score {
+        font-size: 5rem;
+        font-weight: bolder; 
+        color: hsl(229, 25%, 31%); 
+        line-height: 1;  
+
+        @media only screen and (max-width:375px) {
+            font-size: 4rem; 
+        }
+    }
+}
+
+.game {
+    grid-column: 1 / -1; 
+    grid-row: 2/ 3; 
+    background-image: url(../images/bg-triangle.svg); 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;  
+    height: 100%; 
+    position: relative;
+    @media only screen and (max-width:700px) {
+        margin-bottom: 4rem; 
+    }
+
+    &__boxWrapper { 
+        display: inline-block;
+        padding: 2rem;
+        height: 17rem;
+        width: 17rem;
+        border-radius: 50%;
+        cursor: pointer;
+        position: absolute;
+
+        @media only screen and (max-width:700px) {
+            height: 14rem; 
+            width: 14rem;   
+        }
+
+        @media only screen and (max-width:375px) {
+            height: 12rem; 
+            width: 12rem; 
+     
+        }
+
+        &--paper {
+            top: 10%; 
+            left: 15%;
+            background-image: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));  
+            box-shadow: 0 .7rem 0 hsl(230, 77%, 54%);
+
+            @media only screen and (max-width:700px) {
+                left: 7%;
+                top: 23%;  
+            }
+
+            @media only screen and (max-width:375px) {
+                left: 7%; 
+                top: 25%; 
+            }
+        }
+        &--scissors {
+            top: 10%; 
+            right: 15%; 
+            background-image: linear-gradient(to top,  hsl(39, 89%, 49%), hsl(40, 84%, 53%));  
+            box-shadow: 0 .7rem 0  hsl(39, 100%, 42%);
+
+            @media only screen and (max-width:700px) {
+                right: 7%;
+                top: 23%;
+            }
+
+            @media only screen and (max-width:375px) {
+                right: 7%;
+                top: 25%;
+            }
+        }
+        &--rock {
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+            box-shadow: 0 .7rem 0 hsl(349, 70%, 42%); 
+
+            @media only screen and (max-width:700px) {
+                bottom: 25%; 
+            }
+
+            @media only screen and (max-width:375px) {
+               bottom: 30%; 
+            }
+        }
+    }
+
+    &__box {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        background-color: #fff;
+        background-size: 45%;
+        background-repeat: no-repeat;
+        background-position: center; 
+        box-shadow: 0 -.7rem 0 rgb(211, 209, 209); 
+        position: relative;
+        top: 3%;
+    } 
+
+    &__paper { background-image: url(../images/icon-paper.svg);}
+    &__scissors { background-image: url(../images/icon-scissors.svg);}
+    &__rock {background-image: url(../images/icon-rock.svg);} 
+}
+
+.rules {
+    font-size: 1.5rem;  
+    text-transform: uppercase;
+    color: #fff;
+    padding: 1rem 4rem; 
+    border: 2px solid hsl(217, 16%, 45%);  
+    border-radius: 1rem;
+    display: inline-block;
+    text-align: center;
+    justify-self: end; 
+    position: absolute; 
+    right: 5%;    
+    bottom: 10%;
+    cursor: pointer;
+
+    @media only screen and (max-width:700px) {
+        left: 50%; 
+        bottom: 7%;
+        transform: translateX(-50%); 
+        padding: 1rem 3rem;
+    }
+
+    @media only screen and (max-width:375px) {
+        bottom: 7%; 
+    }
+}
+
+.rulesBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 3rem;
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, min-content); 
+    grid-template-rows: repeat(2, min-content); 
+    justify-content: center;
+    gap: 3rem; 
+    align-items: center;
+
+    @media only screen and (max-width:375px) {
+        height: 100%;
+        width: 100%;
+        grid-template-rows: repeat(3, 1fr); 
+        gap: 1rem;
+    }
+
+    &__title {
+        font-size: 3rem;
+        color: hsl(229, 25%, 31%); 
+
+        @media only screen and (max-width:375px) {
+           grid-column: 1 / -1; 
+           grid-row: 1 / 2;
+           justify-self: center;
+        }
+    }
+
+    &__cancel {
+        justify-self: end;
+        cursor: pointer; 
+        
+        @media only screen and (max-width:375px) {
+            @media only screen and (max-width:375px) {
+                grid-column: 1 / -1; 
+                grid-row: 3 / -1; 
+                justify-self: center; 
+            }
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0,0,0, .5);  
+    }
+
+    &__rules {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+
+        @media only screen and (max-width:375px) {
+            align-self: center;
+            width: 30rem;
+        }
+    }
+}
+
+.noDisplay {
+    opacity: 0;
+    pointer-events: none; 
+} 

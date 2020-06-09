@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+
+  <!-- Score
+  Rules
+
+  You Picked
+  The House Picked
+
+  You Win
+  You Lose
+
+  Play Again -->
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 1.2rem; text-align: center; color: white; margin-bottom: -10rem;}  
+    .attribution a { color: hsl(228, 45%, 44%); color: aqua; } 
+  </style>
+</head>
+<body>
+  <div class="scoreBoard">
+    <img src="images/logo.svg" alt="Original Rules" class="scoreBoard__img">
+    <div class="scoreBoard__scoreBox">
+      <span class="scoreBoard__heading">score</span>
+      <span class="scoreBoard__score">0</span> 
+    </div>
+  </div>
+
+  <div class="game">
+    <div class="game__boxWrapper game__boxWrapper--paper">
+      <div class="game__box game__paper"></div>
+    </div>
+    <div class="game__boxWrapper game__boxWrapper--scissors">
+      <div class="game__box game__scissors"></div>
+    </div>
+    <div class="game__boxWrapper game__boxWrapper--rock">  
+      <div class="game__box game__rock"> </div>
+    </div>
+  </div>
+
+  <div class="picked noDisplay">
+    <div class="picked__box picked__playerBox">
+        <h2 class="picked__text">YOU PICKED</h2>
+        <div class="picked__player"><div class="picked__player--imgBox"></div></div>
+    </div>
+    
+    <div class="picked__result">
+        <h1 class="picked__result--heading noDisplay">YOU LOSE</h1>
+        <button class="picked__replay">PLAY AGAIN</button>  
+    </div>
+
+    <div class="picked__box picked__computerBox"> 
+        <h2 class="picked__text">THE HOUSE PICKED</h2>
+        <div class="picked__computer noDisplay"><div class="picked__computer--imgBox"></div></div>
+    </div>
+     
+  </div>
+
+
+  <div class="rules">Rules</div> 
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.twitter.com/akimzzy" target="_blank">Abdul-Hakeem</a>. 
+  </div> -->
+
+  <div class="rulesBox__bg noDisplay"></div>
+  <div class="rulesBox noDisplay">
+    <h1 class="rulesBox__title">RULES</h1>
+    <img src="images/icon-close.svg" alt="close" class="rulesBox__cancel">
+    <img src="images/image-rules.svg" alt="rules" class="rulesBox__rules"> 
+  </div>
+
+  <script src="script.js"> </script> 
+</body>
+</html>
